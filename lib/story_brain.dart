@@ -38,7 +38,30 @@ class StoryBrain {
     return this._storyData[_storyNumber].storyTitle;
   }
 
-  void nextStory({choiceNumber}) {}
+  void nextStory({choiceNumber}) {
+    switch (_storyNumber) {
+      case 0:
+        choiceNumber == 1 ? _storyNumber = 2 : _storyNumber = 1;
+        break;
+      case 1:
+        choiceNumber == 1 ? _storyNumber = 2 : _storyNumber = 3;
+        break;
+      case 2:
+        choiceNumber == 1 ? _storyNumber = 5 : _storyNumber = 4;
+        break;
+      case 3:
+        choiceNumber == 1 ? _storyNumber = 0 : _storyNumber = 5;
+        break;
+      case 4:
+        choiceNumber == 1 ? _storyNumber = 0 : _storyNumber = 5;
+        break;
+      case 5:
+        choiceNumber == 1 ? _storyNumber = 0 : _storyNumber = 5;
+        break;
+      default:
+        break;
+    }
+  }
 
   String getChoice1() {
     return this._storyData[_storyNumber].choice1;
@@ -48,7 +71,6 @@ class StoryBrain {
     return this._storyData[_storyNumber].choice2;
   }
 }
-//TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
 
 //TODO: Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
 
